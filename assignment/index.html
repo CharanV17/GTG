@@ -12,21 +12,30 @@
             <img src="assets/GTG.svg" alt="GTG Logo" class="logo-icon" />
             <ul class="nav-links">
                 <li><a href="#home"><span class="nav-text">Home</span></a></li>
-                <li class="shop-link"><a href="#shop"><span class="nav-text">Shop</span><img src="assets/Navbar/Shop/Chevron Down.svg" alt="Dropdown" class="dropdown-icon"></a></li>
+                <li class="shop-link"><a href="#product"><span class="nav-text">Shop</span><img src="assets/Navbar/Shop/Chevron Down.svg" alt="" class="dropdown-icon" aria-hidden="true"></a></li>
                 <li><a href="#fragrances"><span class="nav-text">Fragrances</span></a></li>
                 <li><a href="#about"><span class="nav-text">About Us</span></a></li>
                 <li><a href="#blog"><span class="nav-text">Blog</span></a></li>
                 <li><a href="#contact"><span class="nav-text">Contact</span></a></li>
             </ul>
             <div class="nav-actions">
-                <button class="search-btn" type="button"><img src="assets/fi_2811790.svg" alt="Search"></button>
+                <button id="search-toggle" class="search-btn" type="button" aria-expanded="false" aria-controls="site-search"><img src="assets/fi_2811790.svg" alt="Search"></button>
                 <a href="#product" class="shop-now-btn"><img src="assets/Button - Large.svg" alt="Shop Now"></a>
             </div>
         </nav>
+        <form id="site-search" class="site-search" role="search" aria-label="Site search" hidden>
+            <label for="site-search-input" class="site-search-label">Search the page</label>
+            <div class="site-search-row">
+                <input id="site-search-input" class="site-search-input" type="search" placeholder="Search fragrances, subscriptions, collections..." />
+                <button class="site-search-submit" type="submit">Search</button>
+                <button id="site-search-close" class="site-search-close" type="button" aria-label="Close search">Close</button>
+            </div>
+            <p id="site-search-status" class="site-search-status" aria-live="polite"></p>
+        </form>
     </header>
     <main>
         <!-- Hero -->
-        <section class="hero">
+        <section id="home" class="hero">
             <div class="hero-left">
                 <img src="assets/Frame 1000004249 (1).svg" alt="Luxury Fragrance" class="pill-img">
                 <img src="assets/Frame 1000004272.svg" alt="Live your best life" class="hero-heading-img">
@@ -64,11 +73,11 @@
                     <button type="button" class="thumb active" data-index="0"><img src="assets/f7d2a29c6a0c7e783b9b54e2b2dd33f72b786b44.jpg" alt="Product thumbnail 1"></button>
                     <button type="button" class="thumb" data-index="1"><img src="assets/a8c8f067b9a3a2d097a82012c1bf9fd831a81dcb.jpg" alt="Product thumbnail 2"></button>
                     <button type="button" class="thumb" data-index="2"><img src="assets/0f17cfd29207b586b6636514f0a6a41abb0984fd.jpg" alt="Product thumbnail 3"></button>
-                    <button type="button" class="thumb" data-index="3"><img src="assets/Group 1000003951.jpg" alt="Product thumbnail 4"></button>
+                    <button type="button" class="thumb" data-index="3"><img src="assets/aed0e9a718e6863cb177edc099de63dbd908eb05.jpg" alt="Product thumbnail 4"></button>
                     <button type="button" class="thumb" data-index="4"><img src="assets/f7d2a29c6a0c7e783b9b54e2b2dd33f72b786b44.jpg" alt="Product thumbnail 5"></button>
                     <button type="button" class="thumb" data-index="5"><img src="assets/a8c8f067b9a3a2d097a82012c1bf9fd831a81dcb.jpg" alt="Product thumbnail 6"></button>
                     <button type="button" class="thumb" data-index="6"><img src="assets/0f17cfd29207b586b6636514f0a6a41abb0984fd.jpg" alt="Product thumbnail 7"></button>
-                    <button type="button" class="thumb" data-index="7"><img src="assets/Group 1000003951.jpg" alt="Product thumbnail 8"></button>
+                    <button type="button" class="thumb" data-index="7"><img src="assets/aed0e9a718e6863cb177edc099de63dbd908eb05.jpg" alt="Product thumbnail 8"></button>
                 </div>
             </div>
             <div class="details">
@@ -92,59 +101,61 @@
                                         <span class="plan-old-price">$146</span>
                                     </span>
                                 </label>
-                                <img src="assets/Vector 12.svg" alt="" class="plan-divider" aria-hidden="true">
+                                <div class="plan-details">
+                                    <img src="assets/Vector 12.svg" alt="" class="plan-divider" aria-hidden="true">
 
-                                <div class="option-block">
-                                    <p class="option-heading">Choose a Fragrance</p>
-                                    <div class="fragrance-grid">
-                                        <label class="fragrance-card">
-                                            <input type="radio" name="fragrance" value="original" checked>
-                                            <span class="card-surface">
-                                                <span class="fragrance-name">Original</span>
-                                                <img src="assets/Group 1000004077.jpg" alt="Original fragrance bottle">
-                                            </span>
-                                        </label>
-                                        <label class="fragrance-card">
-                                            <input type="radio" name="fragrance" value="lily">
-                                            <span class="card-surface">
-                                                <span class="fragrance-name">Lily</span>
-                                                <img src="assets/a8c8f067b9a3a2d097a82012c1bf9fd831a81dcb.jpg" alt="Lily fragrance bottle">
-                                            </span>
-                                        </label>
-                                        <label class="fragrance-card">
-                                            <input type="radio" name="fragrance" value="rose">
-                                            <span class="card-surface">
-                                                <span class="fragrance-name">Rose</span>
-                                                <img src="assets/Group 1000003951.jpg" alt="Rose fragrance bottle">
-                                            </span>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="option-block">
-                                    <p class="option-heading">What's Included:</p>
-                                    <div class="included-grid">
-                                        <label class="included-card included-card-single">
-                                            <input type="radio" name="delivery" value="30-days" checked>
-                                            <span class="card-surface">
-                                                <span class="included-title">Every 30 Days</span>
-                                                <img src="assets/Group 1000004077.jpg" alt="Monthly bottle">
-                                            </span>
-                                        </label>
-                                        <label class="included-card included-card-bundle">
-                                            <input type="radio" name="delivery" value="one-time">
-                                            <span class="card-surface">
-                                                <span class="included-title">One Time <strong>(Free)</strong></span>
-                                                <span class="mini-bottle-row">
+                                    <div class="option-block">
+                                        <p class="option-heading">Choose a Fragrance</p>
+                                        <div class="fragrance-grid">
+                                            <label class="fragrance-card">
+                                                <input type="radio" name="fragrance" value="original" checked>
+                                                <span class="card-surface">
+                                                    <span class="fragrance-name">Original</span>
                                                     <img src="assets/Group 1000004077.jpg" alt="Original fragrance bottle">
-                                                    <img src="assets/a8c8f067b9a3a2d097a82012c1bf9fd831a81dcb.jpg" alt="Lily fragrance bottle">
-                                                    <img src="assets/Group 1000003951.jpg" alt="Rose fragrance bottle">
                                                 </span>
-                                            </span>
-                                        </label>
+                                            </label>
+                                            <label class="fragrance-card">
+                                                <input type="radio" name="fragrance" value="lily">
+                                                <span class="card-surface">
+                                                    <span class="fragrance-name">Lily</span>
+                                                    <img src="assets/a8c8f067b9a3a2d097a82012c1bf9fd831a81dcb.jpg" alt="Lily fragrance bottle">
+                                                </span>
+                                            </label>
+                                            <label class="fragrance-card">
+                                                <input type="radio" name="fragrance" value="rose">
+                                                <span class="card-surface">
+                                                    <span class="fragrance-name">Rose</span>
+                                                    <img src="assets/aed0e9a718e6863cb177edc099de63dbd908eb05.jpg" alt="Rose fragrance bottle">
+                                                </span>
+                                            </label>
+                                        </div>
                                     </div>
+
+                                    <div class="option-block">
+                                        <p class="option-heading">What's Included:</p>
+                                        <div class="included-grid">
+                                            <label class="included-card included-card-single">
+                                                <input type="radio" name="delivery" value="30-days" checked>
+                                                <span class="card-surface">
+                                                    <span class="included-title">Every 30 Days</span>
+                                                    <img src="assets/Group 1000004077.jpg" alt="Monthly bottle">
+                                                </span>
+                                            </label>
+                                            <label class="included-card included-card-bundle">
+                                                <input type="radio" name="delivery" value="one-time">
+                                                <span class="card-surface">
+                                                    <span class="included-title">One Time <strong>(Free)</strong></span>
+                                                    <span class="mini-bottle-row">
+                                                        <img src="assets/Group 1000004077.jpg" alt="Original fragrance bottle">
+                                                        <img src="assets/a8c8f067b9a3a2d097a82012c1bf9fd831a81dcb.jpg" alt="Lily fragrance bottle">
+                                                        <img src="assets/aed0e9a718e6863cb177edc099de63dbd908eb05.jpg" alt="Rose fragrance bottle">
+                                                    </span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <img src="assets/Group 1000003959.svg" alt="Subscription benefits" class="benefit-list-img">
                                 </div>
-                                <img src="assets/Group 1000003959.svg" alt="Subscription benefits" class="benefit-list-img">
                             </fieldset>
                         </div>
 
@@ -159,6 +170,85 @@
                                     <span class="plan-old-price">$146</span>
                                 </span>
                             </label>
+                            <div class="plan-details plan-details-double">
+                                <div class="option-block option-block-tight">
+                                    <p class="option-heading">Choose Fragrance 1</p>
+                                    <div class="fragrance-grid fragrance-grid-compact">
+                                        <label class="fragrance-card fragrance-card-compact">
+                                            <input type="radio" name="double-fragrance-one" value="original" checked>
+                                            <span class="card-surface">
+                                                <span class="fragrance-name">Original</span>
+                                                <img src="assets/Group 1000004077.jpg" alt="Original fragrance bottle">
+                                            </span>
+                                        </label>
+                                        <label class="fragrance-card fragrance-card-compact">
+                                            <input type="radio" name="double-fragrance-one" value="lily">
+                                            <span class="card-surface">
+                                                <span class="fragrance-name">Lily</span>
+                                                <img src="assets/a8c8f067b9a3a2d097a82012c1bf9fd831a81dcb.jpg" alt="Lily fragrance bottle">
+                                            </span>
+                                        </label>
+                                        <label class="fragrance-card fragrance-card-compact">
+                                            <input type="radio" name="double-fragrance-one" value="rose">
+                                            <span class="card-surface">
+                                                <span class="fragrance-name">Rose</span>
+                                                <img src="assets/aed0e9a718e6863cb177edc099de63dbd908eb05.jpg" alt="Rose fragrance bottle">
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="option-block option-block-tight">
+                                    <p class="option-heading">Choose Fragrance 2</p>
+                                    <div class="fragrance-grid fragrance-grid-compact">
+                                        <label class="fragrance-card fragrance-card-compact fragrance-card-disabled">
+                                            <input type="radio" name="double-fragrance-two" value="original" disabled>
+                                            <span class="card-surface">
+                                                <span class="fragrance-status">Sold Out</span>
+                                                <span class="fragrance-name">Original</span>
+                                                <img src="assets/Group 1000004077.jpg" alt="Original fragrance bottle">
+                                            </span>
+                                        </label>
+                                        <label class="fragrance-card fragrance-card-compact">
+                                            <input type="radio" name="double-fragrance-two" value="lily" checked>
+                                            <span class="card-surface">
+                                                <span class="fragrance-name">Lily</span>
+                                                <img src="assets/a8c8f067b9a3a2d097a82012c1bf9fd831a81dcb.jpg" alt="Lily fragrance bottle">
+                                            </span>
+                                        </label>
+                                        <label class="fragrance-card fragrance-card-compact">
+                                            <input type="radio" name="double-fragrance-two" value="rose">
+                                            <span class="card-surface">
+                                                <span class="fragrance-name">Rose</span>
+                                                <img src="assets/aed0e9a718e6863cb177edc099de63dbd908eb05.jpg" alt="Rose fragrance bottle">
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="option-block option-block-tight">
+                                    <p class="option-heading">What's Included:</p>
+                                    <div class="included-grid included-grid-double">
+                                        <label class="included-card included-card-double-monthly">
+                                            <input type="radio" name="double-delivery" value="30-days" checked>
+                                            <span class="card-surface">
+                                                <span class="included-title">Every 30 Days</span>
+                                                <img src="assets/Group 1000004077.jpg" alt="Monthly bottle">
+                                            </span>
+                                        </label>
+                                        <label class="included-card included-card-double-bundle">
+                                            <input type="radio" name="double-delivery" value="one-time">
+                                            <span class="card-surface">
+                                                <span class="included-title">One Time <strong>(Free)</strong></span>
+                                                <span class="mini-bottle-row mini-bottle-row-large">
+                                                    <img src="assets/Group 1000004077.jpg" alt="Original fragrance bottle">
+                                                    <img src="assets/a8c8f067b9a3a2d097a82012c1bf9fd831a81dcb.jpg" alt="Lily fragrance bottle">
+                                                    <img src="assets/aed0e9a718e6863cb177edc099de63dbd908eb05.jpg" alt="Rose fragrance bottle">
+                                                </span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <img src="assets/Group 1000003959.svg" alt="Subscription benefits" class="benefit-list-img">
+                            </div>
                         </fieldset>
                     </div>
 
@@ -188,20 +278,20 @@
         </section>
 
         <!-- Collection + card -->
-        <section class="collection">
+        <section id="fragrances" class="collection">
             <div class="collection-left">
                 <img src="assets/Our Collection.svg" alt="Our Collection" class="collection-title-img">
                 <div class="collection-panels">
-                    <article class="collection-item active">
+                    <article class="collection-item active" role="button" tabindex="0" aria-expanded="true" data-expanded-src="assets/Frame 1000004200.svg" data-collapsed-src="assets/Frame 1000004354.svg">
                         <img src="assets/Frame 1000004200.svg" alt="Signature Scents details" class="collection-item-img">
                     </article>
-                    <article class="collection-item collection-item-frame">
+                    <article class="collection-item collection-item-frame" role="button" tabindex="0" aria-expanded="false" data-expanded-src="assets/Frame 1000004200.svg" data-collapsed-src="assets/Frame 1000004354.svg">
                         <img src="assets/Frame 1000004354.svg" alt="Signature Scents collapsed card" class="collection-item-img">
                     </article>
-                    <article class="collection-item collection-item-frame">
+                    <article class="collection-item collection-item-frame" role="button" tabindex="0" aria-expanded="false" data-expanded-src="assets/Frame 1000004200.svg" data-collapsed-src="assets/Frame 1000004354.svg">
                         <img src="assets/Frame 1000004354.svg" alt="Signature Scents collapsed card" class="collection-item-img">
                     </article>
-                    <article class="collection-item collection-item-frame">
+                    <article class="collection-item collection-item-frame" role="button" tabindex="0" aria-expanded="false" data-expanded-src="assets/Frame 1000004200.svg" data-collapsed-src="assets/Frame 1000004354.svg">
                         <img src="assets/Frame 1000004354.svg" alt="Signature Scents collapsed card" class="collection-item-img">
                     </article>
                 </div>
@@ -214,43 +304,140 @@
         </section>
 
         <!-- Stats -->
-        <section class="stats">
+        <section id="about" class="stats">
             <article class="stat-card">
                 <p class="stat-number number" data-target="84" data-suffix="%">0%</p>
-                <p class="stat-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                <p class="stat-copy">All-day Freshness</p>
             </article>
             <article class="stat-card">
                 <p class="stat-number number" data-target="78" data-suffix="%">0%</p>
-                <p class="stat-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                <p class="stat-copy">Stronger Scent Performance in 7 days</p>
             </article>
             <article class="stat-card">
                 <p class="stat-number number" data-target="89" data-suffix="%">0%</p>
-                <p class="stat-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                <p class="stat-copy">Better Layering Experience</p>
             </article>
             <article class="stat-card">
                 <p class="stat-number number" data-target="90" data-suffix="%">0%</p>
-                <p class="stat-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                <p class="stat-copy">highly recommended</p>
             </article>
         </section>
 
         <!-- Comparison Table -->
-        <section class="table-section">
+        <section id="blog" class="table-section">
             <div class="table-header">
                 <img src="assets/Frame 1000004187.png" alt="Why GTG is the #1 Choice" class="table-header-img">
             </div>
-            <img src="assets/Group 1000004051.svg" alt="Comparison table" class="comparison-table-img">
+            <div class="comparison-table-wrap">
+                <table class="comparison-table" aria-label="GTG comparison table">
+                    <colgroup>
+                        <col class="comparison-col comparison-col-label">
+                        <col class="comparison-col comparison-col-featured">
+                        <col class="comparison-col comparison-col-standard">
+                        <col class="comparison-col comparison-col-standard">
+                        <col class="comparison-col comparison-col-standard">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col" class="comparison-header comparison-header-label">Qualities</th>
+                            <th scope="col" class="comparison-header comparison-header-product">
+                                <div class="comparison-card">
+                                    <span class="comparison-product-photo comparison-product-photo-gtg" aria-hidden="true"></span>
+                                    <span class="comparison-product-name comparison-product-name-featured">GTG</span>
+                                </div>
+                            </th>
+                            <th scope="col" class="comparison-header comparison-header-product">
+                                <div class="comparison-card">
+                                    <span class="comparison-product-photo comparison-product-photo-arose" aria-hidden="true"></span>
+                                    <span class="comparison-product-name">Arose</span>
+                                </div>
+                            </th>
+                            <th scope="col" class="comparison-header comparison-header-product">
+                                <div class="comparison-card">
+                                    <span class="comparison-product-photo comparison-product-photo-bella" aria-hidden="true"></span>
+                                    <span class="comparison-product-name">Bella</span>
+                                </div>
+                            </th>
+                            <th scope="col" class="comparison-header comparison-header-product">
+                                <div class="comparison-card">
+                                    <span class="comparison-product-photo comparison-product-photo-daisies" aria-hidden="true"></span>
+                                    <span class="comparison-product-name">Daisies</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="comparison-row-label">Potency Concentration</th>
+                            <td class="comparison-value"><span class="comparison-value-text">10x</span></td>
+                            <td class="comparison-value"><span class="comparison-value-text">1x</span></td>
+                            <td class="comparison-value"><span class="comparison-value-text">1x</span></td>
+                            <td class="comparison-value"><span class="comparison-value-text">10x</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="comparison-row-label">Longevity</th>
+                            <td class="comparison-value"><span class="comparison-icon is-check" aria-label="Included">&#10003;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-cross" aria-label="Not included">&#215;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-cross" aria-label="Not included">&#215;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-check light" aria-label="Included">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="comparison-row-label">Sillage</th>
+                            <td class="comparison-value"><span class="comparison-icon is-check" aria-label="Included">&#10003;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-cross" aria-label="Not included">&#215;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-cross" aria-label="Not included">&#215;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-cross" aria-label="Not included">&#215;</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="comparison-row-label">Bottle Design Score</th>
+                            <td class="comparison-value"><span class="comparison-value-text">9</span></td>
+                            <td class="comparison-value"><span class="comparison-value-text">5</span></td>
+                            <td class="comparison-value"><span class="comparison-value-text">6</span></td>
+                            <td class="comparison-value"><span class="comparison-value-text">2</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="comparison-row-label">Blend and Harmony</th>
+                            <td class="comparison-value"><span class="comparison-icon is-check" aria-label="Included">&#10003;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-cross" aria-label="Not included">&#215;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-cross" aria-label="Not included">&#215;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-cross" aria-label="Not included">&#215;</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="comparison-row-label">Skin Compatibility</th>
+                            <td class="comparison-value"><span class="comparison-icon is-check" aria-label="Included">&#10003;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-cross" aria-label="Not included">&#215;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-cross" aria-label="Not included">&#215;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-cross" aria-label="Not included">&#215;</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="comparison-row-label">Scent Profile</th>
+                            <td class="comparison-value"><span class="comparison-icon is-check" aria-label="Included">&#10003;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-check light" aria-label="Included">&#10003;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-cross" aria-label="Not included">&#215;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-cross" aria-label="Not included">&#215;</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="comparison-row-label">Price vs. Quality</th>
+                            <td class="comparison-value"><span class="comparison-icon is-check" aria-label="Included">&#10003;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-check light" aria-label="Included">&#10003;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-cross" aria-label="Not included">&#215;</span></td>
+                            <td class="comparison-value"><span class="comparison-icon is-check light" aria-label="Included">&#10003;</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <a href="#product" class="comparison-cta">
                 <img src="assets/Button - Large (1).svg" alt="Try It Risk-Free" class="comparison-cta-img">
             </a>
         </section>
     </main>
-    <footer class="footer">
+    <footer id="contact" class="footer">
         <div class="footer-left">
             <h2>GTG</h2>
             <div class="footer-link-groups">
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#product">Shop</a></li>
                     <li><a href="#fragrances">Fragrances</a></li>
                 </ul>
 
