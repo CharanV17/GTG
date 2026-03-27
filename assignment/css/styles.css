@@ -75,10 +75,10 @@ main {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255,255,255,0.12);
+    background: rgba(255, 255, 255, 0.12);
 }
 
-.hero > * {
+.hero>* {
     position: relative;
     z-index: 1;
 }
@@ -277,10 +277,10 @@ main {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255,255,255,0.12);
+    background: rgba(255, 255, 255, 0.12);
 }
 
-.hero > * {
+.hero>* {
     position: relative;
     z-index: 1;
 }
@@ -345,6 +345,7 @@ main {
     border-radius: inherit;
     object-fit: contain;
 }
+
 .btn.primary {
     background: #115d2f;
     color: #fff;
@@ -376,7 +377,8 @@ main {
     opacity: 1;
 }
 
-.gallery, .details {
+.gallery,
+.details {
     padding: 0.5rem;
 }
 
@@ -774,8 +776,8 @@ main {
     gap: 10px;
 }
 
-.fragrance-card input:checked + .card-surface,
-.included-card input:checked + .card-surface {
+.fragrance-card input:checked+.card-surface,
+.included-card input:checked+.card-surface {
     border-color: #115d2f;
     box-shadow: 0 0 0 1px rgba(17, 93, 47, 0.1);
 }
@@ -1240,10 +1242,10 @@ main {
     gap: 57px;
 }
 
-.table-section > .table-header,
-.table-section > .comparison-grid,
-.table-section > .comparison-table-wrap,
-.table-section > .comparison-table-img {
+.table-section>.table-header,
+.table-section>.comparison-grid,
+.table-section>.comparison-table-wrap,
+.table-section>.comparison-table-img {
     width: 100%;
 }
 
@@ -1565,11 +1567,13 @@ main {
 }
 
 .footer-news-title {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;          /* Bold */
-  font-size: 16.18px;
-  line-height: 150%;         /* same as 1.5 */
-  letter-spacing: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    /* Bold */
+    font-size: 16.18px;
+    line-height: 150%;
+    /* same as 1.5 */
+    letter-spacing: 0;
 }
 
 .newsletter {
@@ -1629,12 +1633,14 @@ main {
         flex-wrap: wrap;
         gap: 1rem;
     }
+
     .nav-links {
         order: 3;
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
     }
+
     .hero-left {
         position: relative;
         top: 0;
@@ -1643,12 +1649,18 @@ main {
         height: auto;
         padding: 2rem 0;
     }
-    .hero-heading-img, .hero-subheading-img, .pill-img, .hero-btn-img {
+
+    .hero-heading-img,
+    .hero-subheading-img,
+    .pill-img,
+    .hero-btn-img {
         max-width: 100%;
         height: auto;
     }
 
-    .hero, .product, .collection {
+    .hero,
+    .product,
+    .collection {
         grid-template-columns: 1fr;
     }
 
