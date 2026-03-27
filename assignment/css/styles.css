@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     color: #0e1f2f;
@@ -13,6 +17,11 @@ body {
 
 a {
     text-decoration: none;
+}
+
+section[id],
+footer[id] {
+    scroll-margin-top: 96px;
 }
 
 /* Header */
@@ -25,6 +34,7 @@ header {
     border-bottom: none;
     z-index: 30;
     height: 72.8px;
+    overflow: visible;
 }
 
 nav {
@@ -102,7 +112,7 @@ main {
     height: 24px;
 }
 
-.nav-links li a .dropdown-icon {
+.dropdown-icon {
     width: 24.27px;
     height: 24.27px;
     object-fit: contain;
@@ -127,6 +137,79 @@ main {
 .search-btn img {
     height: 26px;
     width: 26px;
+}
+
+.site-search {
+    width: min(100% - 64px, 760px);
+    margin: 14px auto 0;
+    padding: 14px 16px;
+    border: 1px solid rgba(15, 43, 68, 0.12);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 18px 40px rgba(15, 43, 68, 0.08);
+}
+
+.site-search-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #30485f;
+}
+
+.site-search-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 10px;
+    align-items: center;
+}
+
+.site-search-input {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 14px;
+    border: 1px solid #cdd9d1;
+    border-radius: 999px;
+    background: #fff;
+    color: #173049;
+    font: inherit;
+}
+
+.site-search-input:focus {
+    outline: 2px solid rgba(17, 93, 47, 0.18);
+    border-color: #115d2f;
+}
+
+.site-search-submit,
+.site-search-close {
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 999px;
+    border: 1px solid #d2ddd4;
+    background: #fff;
+    color: #173049;
+    font: inherit;
+    cursor: pointer;
+}
+
+.site-search-submit {
+    border-color: #115d2f;
+    background: #115d2f;
+    color: #fff;
+    font-weight: 700;
+}
+
+.site-search-status {
+    min-height: 1.1rem;
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: #5c6f65;
+}
+
+.search-match-target {
+    box-shadow: 0 0 0 3px rgba(17, 93, 47, 0.14);
+    transition: box-shadow 0.25s ease;
 }
 
 .shop-now-btn {
@@ -217,9 +300,14 @@ main {
     gap: 36px;
 }
 
+.hero-pill {
+    display: block;
+}
+
 .pill-img {
     width: 160px;
     height: auto;
+    display: block;
     margin-bottom: 0.5rem;
 }
 
@@ -506,6 +594,18 @@ main {
     color: #203121;
 }
 
+.plan-card .plan-details {
+    display: none;
+}
+
+.plan-card:has(input[name="purchase"]:checked) .plan-details {
+    display: block;
+}
+
+.subscription-layout:has(.secondary-plan input[name="purchase"]:checked) .subscription-badge {
+    display: none;
+}
+
 .primary-plan {
     padding: 14px 20px 18px;
 }
@@ -513,6 +613,25 @@ main {
 .secondary-plan {
     padding: 16px 20px;
     border-radius: 4px;
+}
+
+.secondary-plan:has(input[name="purchase"]:checked) {
+    width: 610px;
+    min-height: 882px;
+    box-sizing: border-box;
+    padding: 16px 14px 18px;
+    border-width: 1.01px;
+    border-radius: 6.07px;
+    border-color: #203121;
+}
+
+.plan-details-double {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #d9e1d6;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .plan-summary {
@@ -571,6 +690,11 @@ main {
     margin-top: 14px;
 }
 
+.option-block-tight {
+    width: 100%;
+    margin-top: 18px;
+}
+
 .option-heading {
     margin-bottom: 10px;
     color: #697869;
@@ -598,6 +722,19 @@ main {
     width: 127.10958862304688px;
     height: 152.68431091308594px;
     opacity: 1;
+}
+
+.fragrance-grid-compact {
+    width: 404.5674133300781px;
+    height: 180.68431091308594px;
+    grid-template-columns: repeat(3, 129.52247111002603px);
+    gap: 8px;
+    justify-content: flex-start;
+}
+
+.fragrance-card-compact {
+    width: 129.52247111002603px;
+    height: 180.68431091308594px;
 }
 
 .fragrance-card input,
@@ -628,6 +765,13 @@ main {
     gap: 4px;
 }
 
+.fragrance-card-compact .card-surface {
+    position: relative;
+    padding: 10px 10px 12px;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
 .fragrance-card input:checked + .card-surface,
 .included-card input:checked + .card-surface {
     border-color: #115d2f;
@@ -640,11 +784,43 @@ main {
     color: #7a877a;
 }
 
+.fragrance-status {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 16px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: #115d2f;
+    color: #fff;
+    font-size: 0.52rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.fragrance-card-disabled {
+    cursor: not-allowed;
+}
+
+.fragrance-card-disabled .card-surface {
+    background: #f6f6f2;
+    opacity: 0.72;
+}
+
 .fragrance-card img {
     width: 30px;
     height: 54px;
     object-fit: cover;
     margin-top: auto;
+}
+
+.fragrance-card-compact img {
+    width: 38px;
+    height: 62px;
 }
 
 .included-grid {
@@ -686,6 +862,36 @@ main {
     padding: 8px 10px;
 }
 
+.included-grid-double {
+    width: 504.9107971191406px;
+    grid-template-columns: 166.73419189453125px 328.1766052246094px;
+    column-gap: 8px;
+}
+
+.included-card-double-monthly {
+    width: 166.73419189453125px;
+    height: 219.5283966064453px;
+}
+
+.included-card-double-monthly .card-surface {
+    width: 100%;
+    height: 100%;
+    min-height: 219.5283966064453px;
+    padding: 10px;
+}
+
+.included-card-double-bundle {
+    width: 328.1766052246094px;
+    height: 219.5283966064453px;
+}
+
+.included-card-double-bundle .card-surface {
+    width: 100%;
+    height: 100%;
+    min-height: 219.5283966064453px;
+    padding: 10px 12px;
+}
+
 .included-card-single img {
     width: 34px;
     height: 60px;
@@ -706,12 +912,56 @@ main {
     object-fit: cover;
 }
 
+.mini-bottle-row-large {
+    gap: 12px;
+}
+
+.mini-bottle-row-large img {
+    width: 32px;
+    height: 54px;
+}
+
+.included-card-double-monthly img {
+    width: 96px;
+    height: 156px;
+    align-self: center;
+    object-fit: cover;
+}
+
 .benefit-list-img {
     display: block;
     width: 100%;
     max-width: 452px;
     height: auto;
     margin-top: 16px;
+}
+
+.subscription-benefits {
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.subscription-benefits li {
+    position: relative;
+    padding-left: 14px;
+    color: #6f766f;
+    font-size: 0.82rem;
+    line-height: 1.35;
+}
+
+.subscription-benefits li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.46rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #8f9b8d;
 }
 
 #add-to-cart {
@@ -817,6 +1067,7 @@ main {
     border-radius: 8px;
     background: #fff;
     padding: 18px 20px;
+    cursor: pointer;
 }
 
 .collection-item.active {
@@ -840,6 +1091,11 @@ main {
     width: 100%;
     height: 100%;
     display: block;
+}
+
+.collection-item:focus-visible {
+    outline: 2px solid #115d2f;
+    outline-offset: 4px;
 }
 
 .collection-item-header {
@@ -950,6 +1206,7 @@ main {
 
 .table-section > .table-header,
 .table-section > .comparison-grid,
+.table-section > .comparison-table-wrap,
 .table-section > .comparison-table-img {
     width: 950.1367797851562px;
 }
@@ -969,11 +1226,40 @@ main {
     height: auto;
 }
 
+.comparison-table-wrap {
+    width: 951px;
+    overflow: visible;
+}
+
+.comparison-table {
+    width: 951px;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+.comparison-col-label {
+    width: 300px;
+}
+
+.comparison-col-featured {
+    width: 199px;
+}
+
+.comparison-col-standard {
+    width: 150.666px;
+}
+
 .comparison-table-img {
     display: block;
     width: 951px;
     height: 672.4463500976562px;
     opacity: 1;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 0;
 }
 
 .comparison-column {
@@ -986,13 +1272,45 @@ main {
 }
 
 .comparison-card {
-    min-height: 136px;
+    min-height: 190px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 12px;
     padding: 0 12px;
+}
+
+.comparison-product-photo {
+    display: block;
+    background-image: url('../assets/Group 1000004051.svg');
+    background-repeat: no-repeat;
+    background-size: 951px 673px;
+    border-radius: 16px;
+}
+
+.comparison-product-photo-gtg {
+    width: 88px;
+    height: 87px;
+    background-position: -353px -38px;
+}
+
+.comparison-product-photo-arose {
+    width: 100px;
+    height: 88px;
+    background-position: -542px -29px;
+}
+
+.comparison-product-photo-bella {
+    width: 100px;
+    height: 88px;
+    background-position: -708px -29px;
+}
+
+.comparison-product-photo-daisies {
+    width: 108px;
+    height: 88px;
+    background-position: -843px -29px;
 }
 
 .comparison-spacer {
@@ -1018,32 +1336,59 @@ main {
 .comparison-product-name {
     margin: 0;
     font-size: 0.95rem;
-    color: #526052;
+    font-weight: 400;
+    color: #8b8f8d;
+}
+
+.comparison-product-name-featured {
+    font-size: 1.05rem;
+    color: #202020;
 }
 
 .comparison-header,
 .comparison-row-label,
 .comparison-value {
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 62px;
+    vertical-align: middle;
     border-bottom: 1px solid #aeb7ad;
 }
 
 .comparison-header-label,
 .comparison-row-label {
-    justify-content: flex-start;
-    padding-left: 12px;
+    text-align: left;
+    padding-left: 14px;
     font-size: 0.98rem;
     font-weight: 600;
     color: #616761;
 }
 
 .comparison-header {
+    height: 191px;
+    text-align: center;
     font-size: 0.98rem;
     font-weight: 600;
     color: #616761;
+}
+
+.comparison-header-product,
+.comparison-value {
+    text-align: center;
+}
+
+.comparison-table th:nth-child(2),
+.comparison-table td:nth-child(2) {
+    background: #f0fdf4;
+    border-bottom: 1.01129px dashed #322d2d;
+}
+
+.comparison-table thead th:nth-child(2) {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.comparison-table tbody tr:last-child td:nth-child(2) {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .comparison-value-text {
@@ -1059,24 +1404,25 @@ main {
     align-items: center;
     justify-content: center;
     font-size: 1rem;
+    font-weight: 500;
     line-height: 1;
 }
 
 .comparison-icon.is-check {
-    background: #173d22;
-    color: #fff;
+    background: #032e15;
+    color: #f0eee6;
 }
 
 .comparison-icon.is-check.light {
     background: transparent;
-    border: 1px solid #5b645d;
-    color: #243026;
+    border: 1px solid #322d2d;
+    color: #322d2d;
 }
 
 .comparison-icon.is-cross {
     background: transparent;
-    border: 1px solid #5b645d;
-    color: #243026;
+    border: 1px solid #322d2d;
+    color: #322d2d;
 }
 
 .comparison-cta {
@@ -1336,33 +1682,41 @@ main {
         height: 420px;
     }
 
-    .fragrance-grid {
+    .fragrance-grid,
+    .fragrance-grid-compact {
         width: 100%;
         height: auto;
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .fragrance-card {
+    .fragrance-card,
+    .fragrance-card-compact {
         top: 0;
         width: auto;
         max-height: none;
     }
 
-    .included-grid {
+    .included-grid,
+    .included-grid-double {
+        width: 100%;
         grid-template-columns: 1fr;
         column-gap: 0;
         row-gap: 12px;
     }
 
     .included-card-single,
-    .included-card-bundle {
+    .included-card-bundle,
+    .included-card-double-monthly,
+    .included-card-double-bundle {
         width: 100%;
         height: auto;
         margin-left: 0;
     }
 
     .included-card-single .card-surface,
-    .included-card-bundle .card-surface {
+    .included-card-bundle .card-surface,
+    .included-card-double-monthly .card-surface,
+    .included-card-double-bundle .card-surface {
         min-height: 219.5283966064453px;
     }
 
@@ -1393,18 +1747,17 @@ main {
         height: auto;
     }
 
-    .comparison-grid {
-        grid-template-columns: 170px repeat(4, minmax(72px, 1fr));
+    .comparison-table-wrap {
+        width: 100%;
         overflow-x: auto;
     }
 
-    .comparison-table-img {
-        width: 100%;
-        height: auto;
+    .comparison-table {
+        min-width: 951px;
     }
 
-    .subscriptions {
-        flex-direction: column;
+    .site-search {
+        width: calc(100% - 20px);
     }
 }
 
