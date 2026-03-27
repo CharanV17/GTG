@@ -135,3 +135,28 @@ const observer = new IntersectionObserver((entries) => {
 if (statsSection) {
     observer.observe(statsSection);
 }
+
+const btn = document.querySelector('.newsletter button');
+const input = document.querySelector('.newsletter input');
+
+if (btn && input) {
+    btn.addEventListener('click', () => {
+        if (input.value.trim() === '') {
+            alert('Please enter email');
+        } else {
+            alert('Subscribed!');
+        }
+    });
+}
+
+const footerRight = document.querySelector('.footer-right');
+if (footerRight) {
+    ['.footer-news-title', '.newsletter', '.footer-news-note'].forEach((selector) => {
+        const nodes = footerRight.querySelectorAll(selector);
+        nodes.forEach((node, idx) => {
+            if (idx > 0) {
+                node.remove();
+            }
+        });
+    });
+}
