@@ -202,8 +202,9 @@ function setCollectionState(item, expanded) {
 
 collectionItems.forEach((item) => {
     item.addEventListener('click', () => {
-        const isExpanded = item.classList.contains('active');
-        setCollectionState(item, !isExpanded);
+        collectionItems.forEach((otherItem) => {
+            setCollectionState(otherItem, otherItem === item);
+        });
     });
 
     item.addEventListener('keydown', (event) => {
